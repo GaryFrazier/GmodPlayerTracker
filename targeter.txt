@@ -1,0 +1,21 @@
+@name targeter
+@inputs Player:entity
+@outputs PlayerName:string
+@persist PlayerX PlayerY PlayerZ PlayerName:string Rotation
+runOnTick(1)
+
+PlayerX = Player:pos():x()
+PlayerY = Player:pos():y()
+PlayerZ = Player:pos():z()
+
+PlayerName = Player:name()
+
+Rotation += 1
+
+if(PlayerX != 0 || PlayerY != 0 || PlayerZ)
+{
+    holoCreate(1, vec(PlayerX, PlayerY, PlayerZ + 100), vec(2,2,2), ang(vec(45,Rotation, 0)))
+    holoCreate(2, vec(PlayerX, PlayerY, PlayerZ + 150), vec(1,1,8), ang(vec(0,Rotation, 0)))
+}
+
+
